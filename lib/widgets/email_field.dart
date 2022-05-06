@@ -722,10 +722,7 @@ class EmailField extends HookWidget {
         ),
       ),
       onFocusChange: (hasFocus) {
-        if (hasFocus) {
-          dev.log('focus: yes');
-        } else {
-          dev.log('focus: no');
+        if (!hasFocus) {
           _emailFieldKey.currentState!.validate();
         }
       },
