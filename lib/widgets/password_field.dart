@@ -35,6 +35,7 @@ class PasswordField extends HookWidget {
       key: _passwordFieldKey,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: _validatePassword,
+      autofillHints: const [AutofillHints.password],
       obscureText: _obscureTextState.value,
       decoration: InputDecoration(
         labelText: labelText,

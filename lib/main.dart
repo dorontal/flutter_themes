@@ -1,7 +1,8 @@
 import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_themes/widgets/password_field.dart';
+import './widgets/email_field.dart';
+import './widgets/password_field.dart';
 import './constants/theme_data.dart';
 
 void main() {
@@ -33,13 +34,12 @@ class FormPage extends HookWidget {
         title: const Text('Theme playground'),
       ),
       body: Form(
-        autovalidateMode: AutovalidateMode.onUserInteraction,
         key: _formKey,
         child: ListView(
           padding: const EdgeInsets.all(32),
           children: <Widget>[
             const PasswordField(),
-            TextFormField(),
+            const EmailField(),
           ]
               .map((child) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
