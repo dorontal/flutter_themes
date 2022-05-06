@@ -1,8 +1,9 @@
+import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 const labelText = 'Password';
-const hintText = 'Enter password';
+const hintText = 'Please enter your password';
 
 const int _minLength = 8;
 const int _maxLength = 32;
@@ -29,23 +30,34 @@ class PasswordField extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final _obscureTextState = useState(true);
-    return TextFormField(
-      validator: _validatePassword,
-      obscureText: _obscureTextState.value,
-      decoration: InputDecoration(
-        labelText: labelText,
-        // An empty helperText prevents field from changing height
-        // when an error is shown:
-        helperText: '',
-        //hintText: hintText,
-        prefixIcon: const Icon(Icons.lock),
-        suffixIcon: IconButton(
-          onPressed: () => _obscureTextState.value = !_obscureTextState.value,
-          icon: Icon(
-            _obscureTextState.value ? Icons.visibility : Icons.visibility_off,
+    final _passwordFieldKey = GlobalKey<FormFieldState>();
+
+    return Focus(
+      child: TextFormField(
+        key: _passwordFieldKey,
+        validator: _validatePassword,
+        obscureText: _obscureTextState.value,
+        decoration: InputDecoration(
+          labelText: labelText,
+          // An empty helperText prevents field from changing height
+          // when an error is shown:
+          helperText: '',
+          hintText: hintText,
+          prefixIcon: const Icon(Icons.lock),
+          suffixIcon: IconButton(
+            onPressed: () => _obscureTextState.value = !_obscureTextState.value,
+            icon: Icon(
+              _obscureTextState.value ? Icons.visibility : Icons.visibility_off,
+            ),
           ),
         ),
       ),
+      onFocusChange: (hasFocus) {
+        dev.log('hasFOus $hasFocus');
+        if (!hasFocus) {
+          _passwordFieldKey.currentState!.validate();
+        }
+      },
     );
   }
 }

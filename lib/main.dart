@@ -16,13 +16,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: themeData,
-      home: FormPage(),
+      home: const FormPage(),
     );
   }
 }
 
 class FormPage extends HookWidget {
-  FormPage({Key? key}) : super(key: key);
+  const FormPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +35,17 @@ class FormPage extends HookWidget {
       body: Form(
         key: _formKey,
         child: ListView(
-            padding: const EdgeInsets.all(32),
-            children: const <Widget>[
-              PasswordField(),
-            ]),
+          padding: const EdgeInsets.all(32),
+          children: <Widget>[
+            const PasswordField(),
+            TextFormField(),
+          ]
+              .map((child) => Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: child,
+                  ))
+              .toList(),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
