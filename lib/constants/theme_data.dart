@@ -7,13 +7,12 @@ import 'package:flutter/material.dart';
 final themeData = ThemeData(
     brightness: Brightness.dark,
     primarySwatch: Colors.blue,
-    // primaryColor: primaryColor,
     // primaryColor: const Color(0xff64ffda),
     inputDecorationTheme: InputDecorationTheme(
       // contentPadding: const EdgeInsets.all(16),
       contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
       // always put the label at the top
-      floatingLabelBehavior: FloatingLabelBehavior.always,
+      floatingLabelBehavior: FloatingLabelBehavior.auto,
       fillColor: Colors.blue,
 
       // Border
@@ -33,10 +32,10 @@ final themeData = ThemeData(
 
       prefixStyle: _buildTextStyle(Colors.white),
       suffixStyle: _buildTextStyle(Colors.white),
-      // counter shows up at bottom right below field eg, to show # of chars:
+      // counter shows up on lower right, below field:
       counterStyle: _buildTextStyle(Colors.grey, fontSize: 12),
       // label that has floated to the border of the textbox:
-      // floatingLabelStyle: _buildTextStyle(Colors.white),
+      floatingLabelStyle: _buildTextStyle(Colors.white),
       // Make errorStyle.size == helperStyle.size so that the field
       // does not grow in size when there is an error
       errorStyle: _buildTextStyle(Colors.red, fontSize: 12),

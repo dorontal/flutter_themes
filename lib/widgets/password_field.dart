@@ -1,4 +1,3 @@
-import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -32,37 +31,25 @@ class PasswordField extends HookWidget {
     final _obscureTextState = useState(true);
     final _passwordFieldKey = GlobalKey<FormFieldState>();
 
-    return Focus(
-      child: TextFormField(
-        key: _passwordFieldKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        validator: _validatePassword,
-        obscureText: _obscureTextState.value,
-        decoration: InputDecoration(
-          labelText: labelText,
-          // An empty helperText prevents field from changing height
-          // when an error is shown:
-          helperText: '',
-          hintText: hintText,
-          prefixIcon: const Icon(Icons.lock),
-          suffixIcon: IconButton(
-            onPressed: () => _obscureTextState.value = !_obscureTextState.value,
-            icon: Icon(
-              _obscureTextState.value ? Icons.visibility : Icons.visibility_off,
-            ),
+    return TextFormField(
+      key: _passwordFieldKey,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: _validatePassword,
+      obscureText: _obscureTextState.value,
+      decoration: InputDecoration(
+        labelText: labelText,
+        // An empty helperText prevents field from changing height
+        // when an error is shown:
+        helperText: '',
+        hintText: hintText,
+        prefixIcon: const Icon(Icons.lock),
+        suffixIcon: IconButton(
+          onPressed: () => _obscureTextState.value = !_obscureTextState.value,
+          icon: Icon(
+            _obscureTextState.value ? Icons.visibility : Icons.visibility_off,
           ),
         ),
       ),
-      onFocusChange: (hasFocus) {
-        if (hasFocus) {
-          dev.log(
-              'got focus - currentState: ${_passwordFieldKey.currentState!.value}');
-        } else {
-          dev.log(
-              'lost focus - currentState: ${_passwordFieldKey.currentState!.value}');
-          _passwordFieldKey.currentState!.validate();
-        }
-      },
     );
   }
 }
