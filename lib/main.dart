@@ -33,6 +33,7 @@ class FormPage extends HookWidget {
         title: const Text('Theme playground'),
       ),
       body: Form(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         key: _formKey,
         child: ListView(
           padding: const EdgeInsets.all(32),

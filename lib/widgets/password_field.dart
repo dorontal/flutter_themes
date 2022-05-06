@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 const labelText = 'Password';
-const hintText = 'Please enter your password';
+const hintText = '';
 
 const int _minLength = 8;
 const int _maxLength = 32;
@@ -35,6 +35,7 @@ class PasswordField extends HookWidget {
     return Focus(
       child: TextFormField(
         key: _passwordFieldKey,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: _validatePassword,
         obscureText: _obscureTextState.value,
         decoration: InputDecoration(
@@ -53,8 +54,12 @@ class PasswordField extends HookWidget {
         ),
       ),
       onFocusChange: (hasFocus) {
-        dev.log('hasFOus $hasFocus');
-        if (!hasFocus) {
+        if (hasFocus) {
+          dev.log(
+              'got focus - currentState: ${_passwordFieldKey.currentState!.value}');
+        } else {
+          dev.log(
+              'lost focus - currentState: ${_passwordFieldKey.currentState!.value}');
           _passwordFieldKey.currentState!.validate();
         }
       },
