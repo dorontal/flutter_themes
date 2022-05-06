@@ -42,7 +42,7 @@ final themeData = ThemeData(
       helperStyle: _buildTextStyle(Colors.white, fontSize: 12),
       hintStyle: _buildTextStyle(Colors.grey),
       // label that's inside the textbox:
-      //labelStyle: _buildTextStyle(Colors.white),
+      labelStyle: _buildTextStyle(Colors.grey),
     ));
 
 OutlineInputBorder _buildOutlineInputBorder(Color color) => OutlineInputBorder(
