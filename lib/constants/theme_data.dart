@@ -22,14 +22,16 @@ final themeData = ThemeData(
       // enabled, focused, error
       focusedErrorBorder: _buildOutlineInputBorder(Colors.red),
       // enabbled, focused, no error
-      focusedBorder: _buildOutlineInputBorder(Colors.blue),
+      focusedBorder: _buildOutlineInputBorder(Colors.white),
       // disabled
       disabledBorder: _buildOutlineInputBorder(Colors.grey[400]!),
 
       // Text
 
-      prefixStyle: _buildTextStyle(Colors.white),
-      suffixStyle: _buildTextStyle(Colors.white),
+      prefixStyle: _buildTextStyle(Colors.white70),
+      suffixStyle: _buildTextStyle(Colors.white70),
+      prefixIconColor: Colors.white70,
+      suffixIconColor: Colors.white70,
       // counter shows up on lower right, below field:
       counterStyle: _buildTextStyle(Colors.grey, fontSize: 12),
       // label that has floated to the border of the textbox:

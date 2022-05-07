@@ -53,7 +53,7 @@ class FormPage extends HookWidget {
           dev.log('Valid form?: ${_formKey.currentState!.validate()}');
         },
         tooltip: 'Check validity',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.check),
       ),
     );
   }
