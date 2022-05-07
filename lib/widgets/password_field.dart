@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class PasswordField extends HookWidget {
-  const PasswordField({Key? key}) : super(key: key);
+  PasswordField({Key? key}) : super(key: key);
+
+  final _passwordFieldKey = GlobalKey<FormFieldState>();
 
   @override
   Widget build(BuildContext context) {
     final _obscureTextState = useState(true);
-    final _passwordFieldKey = GlobalKey<FormFieldState>();
 
     return Focus(
       child: TextFormField(
@@ -42,18 +43,17 @@ class PasswordField extends HookWidget {
 }
 
 String? _validatePassword(String? password, [String? genericResponse]) {
-  const int _minLength = 8;
-  const int _maxLength = 32;
-  final RegExp _nonASCIIRegExp = RegExp('[^\x00-\x7F]');
-  final RegExp _hasLowercaseRegExp = RegExp(r'[a-z]+');
-  final RegExp _hasUppercaseRegExp = RegExp(r'[A-Z]+');
-  final RegExp _hasDigitsRegExp = RegExp(r'[0-9]+');
-
+  const int minLength = 8;
+  const int maxLength = 32;
+  final RegExp nonASCIIRegExp = RegExp('[^\x00-\x7F]');
+  final RegExp hasLowercaseRegExp = RegExp(r'[a-z]+');
+  final RegExp hasUppercaseRegExp = RegExp(r'[A-Z]+');
+  final RegExp hasDigitsRegExp = RegExp(r'[0-9]+');
   const String invalidMessage01 = 'Please enter a password';
   const String invalidMessage02 =
-      'Password must have at least $_minLength characters';
+      'Password must have at least $minLength characters';
   const String invalidMessage03 =
-      'Password must have at most $_maxLength characters';
+      'Password must have at most $maxLength characters';
   const String invalidMessage04 = 'Password must be all ASCII characters';
   const String invalidMessage05 =
       'Password must have at least one lowercase character';
@@ -65,22 +65,22 @@ String? _validatePassword(String? password, [String? genericResponse]) {
     return genericResponse ?? invalidMessage01;
   } else {
     final length = password.length;
-    if (length < _minLength) {
+    if (length < minLength) {
       return genericResponse ?? invalidMessage02;
     }
-    if (length > _maxLength) {
+    if (length > maxLength) {
       return genericResponse ?? invalidMessage03;
     }
-    if (_nonASCIIRegExp.hasMatch(password)) {
+    if (nonASCIIRegExp.hasMatch(password)) {
       return genericResponse ?? invalidMessage04;
     }
-    if (!_hasLowercaseRegExp.hasMatch(password)) {
+    if (!hasLowercaseRegExp.hasMatch(password)) {
       return genericResponse ?? invalidMessage05;
     }
-    if (!_hasUppercaseRegExp.hasMatch(password)) {
+    if (!hasUppercaseRegExp.hasMatch(password)) {
       return genericResponse ?? invalidMessage06;
     }
-    if (!_hasDigitsRegExp.hasMatch(password)) {
+    if (!hasDigitsRegExp.hasMatch(password)) {
       return genericResponse ?? invalidMessage07;
     }
   }

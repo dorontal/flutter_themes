@@ -6,11 +6,11 @@ class EmailField extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _emailFieldKey = GlobalKey<FormFieldState>();
+    final emailFieldKey = GlobalKey<FormFieldState>();
 
     return Focus(
       child: TextFormField(
-        key: _emailFieldKey,
+        key: emailFieldKey,
         validator: _validateEmail,
         autofillHints: const [AutofillHints.email],
         decoration: const InputDecoration(
@@ -23,7 +23,7 @@ class EmailField extends HookWidget {
       ),
       onFocusChange: (hasFocus) {
         if (!hasFocus) {
-          _emailFieldKey.currentState!.validate();
+          emailFieldKey.currentState!.validate();
         }
       },
     );
@@ -33,7 +33,7 @@ class EmailField extends HookWidget {
 /// If genericResponse is supplied as a non empty string, it becomes the
 /// only error report ever returned and replaces all other errors.
 String? _validateEmail(String? email, [String? genericResponse]) {
-  final Set<String> _validDomains = {
+  final Set<String> validDomains = {
     'gmail.com',
     'yahoo.com',
     'hotmail.com',
@@ -141,7 +141,7 @@ String? _validateEmail(String? email, [String? genericResponse]) {
     '139.com',
     'sohu.com'
   };
-  final Set<String> _excludedDomains = {
+  final Set<String> excludedDomains = {
     'avito.ru',
     'avito-boxberry.ru',
     'avito-dilivery.ru',
@@ -706,21 +706,19 @@ String? _validateEmail(String? email, [String? genericResponse]) {
     'zoemail.net',
     'zomg.info'
   };
-  // final RegExp _emailRegExp = RegExp(
+  // final RegExp emailRegExp = RegExp(
   //    r"^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$");
-  final RegExp _emailRegExp = RegExp(
+  final RegExp emailRegExp = RegExp(
       r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
   final RegExp _nonASCIIRegExp = RegExp('[^\x00-\x7F]');
-  final RegExp _firstDomainCharRegExp = RegExp('[^a-zA-Z0-9]');
-  const int _minLength = 8;
-  const int _maxLength = 255;
-
+  final RegExp firstDomainCharRegExp = RegExp('[^a-zA-Z0-9]');
+  const int minLength = 8;
+  const int maxLength = 255;
   const String invalidEmailMessage01 = 'Email can\'t be null';
   const String invalidEmailMessage02 = 'Email can\'t be empty';
   const String invalidEmailMessage03 =
-      'Email must have at least $_minLength characters';
-  const invalidEmailMessage04 =
-      'Email must have at most $_maxLength characters';
+      'Email must have at least $minLength characters';
+  const invalidEmailMessage04 = 'Email must have at most $maxLength characters';
   const String invalidEmailMessage05 = 'Non ASCII characters found';
   const String invalidEmailMessage06 = 'Not an email address - wrong parts';
   const String invalidEmailMessage07 = 'Incorrectly formatted email address';
@@ -737,11 +735,11 @@ String? _validateEmail(String? email, [String? genericResponse]) {
     return genericResponse ?? invalidEmailMessage02;
   } else {
     final length = email.length;
-    if (length < _minLength) {
+    if (length < minLength) {
       return genericResponse ?? invalidEmailMessage03;
     }
 
-    if (length > _maxLength) {
+    if (length > maxLength) {
       return genericResponse ?? invalidEmailMessage04;
     }
 
@@ -760,20 +758,20 @@ String? _validateEmail(String? email, [String? genericResponse]) {
       return genericResponse ?? invalidEmailMessage07;
     }
 
-    if (!_emailRegExp.hasMatch(email)) {
+    if (!emailRegExp.hasMatch(email)) {
       return genericResponse ?? invalidEmailMessage07;
     }
 
-    final firstDomainCharMatches = _firstDomainCharRegExp.allMatches(domain[0]);
+    final firstDomainCharMatches = firstDomainCharRegExp.allMatches(domain[0]);
     if (firstDomainCharMatches.isNotEmpty) {
       return genericResponse ?? invalidEmailMessage08;
     }
 
-    if (_excludedDomains.contains(domain)) {
+    if (excludedDomains.contains(domain)) {
       return genericResponse ?? invalidEmailMessage09;
     }
 
-    if (!_validDomains.contains(domain)) {
+    if (!validDomains.contains(domain)) {
       return genericResponse ?? invalidEmailMessage10;
     }
   }

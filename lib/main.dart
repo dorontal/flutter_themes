@@ -38,8 +38,8 @@ class FormPage extends HookWidget {
         child: ListView(
           padding: const EdgeInsets.all(32),
           children: <Widget>[
-            const PasswordField(),
             const EmailField(),
+            PasswordField(),
           ]
               .map((child) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
