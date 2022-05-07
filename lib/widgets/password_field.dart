@@ -9,25 +9,34 @@ class PasswordField extends HookWidget {
     final _obscureTextState = useState(true);
     final _passwordFieldKey = GlobalKey<FormFieldState>();
 
-    return TextFormField(
-      key: _passwordFieldKey,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: _validatePassword,
-      autofillHints: const [AutofillHints.password],
-      obscureText: _obscureTextState.value,
-      decoration: InputDecoration(
-        labelText: 'Password',
-        // An empty helperText prevents field from changing height
-        // when an error is shown:
-        helperText: '',
-        prefixIcon: const Icon(Icons.lock),
-        suffixIcon: IconButton(
-          onPressed: () => _obscureTextState.value = !_obscureTextState.value,
-          icon: Icon(
-            _obscureTextState.value ? Icons.visibility : Icons.visibility_off,
-          ),
-        ),
-      ),
+    return Focus(
+      child: TextFormField(
+          key: _passwordFieldKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          validator: _validatePassword,
+          autofillHints: const [AutofillHints.password],
+          obscureText: _obscureTextState.value,
+          decoration: InputDecoration(
+            labelText: 'Password',
+            // An empty helperText prevents field from changing height
+            // when an error is shown:
+            helperText: '',
+            prefixIcon: const Icon(Icons.lock),
+            suffixIcon: IconButton(
+              onPressed: () =>
+                  _obscureTextState.value = !_obscureTextState.value,
+              icon: Icon(
+                _obscureTextState.value
+                    ? Icons.visibility
+                    : Icons.visibility_off,
+              ),
+            ),
+          )),
+      onFocusChange: (hasFocus) {
+        if (!hasFocus) {
+          _passwordFieldKey.currentState!.validate();
+        }
+      },
     );
   }
 }

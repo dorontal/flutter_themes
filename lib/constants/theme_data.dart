@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 
 final themeData = ThemeData(
     brightness: Brightness.dark,
-    primarySwatch: Colors.blue,
+    // primarySwatch: Colors.yellow,
     // primaryColor: const Color(0xff64ffda),
     inputDecorationTheme: InputDecorationTheme(
       // contentPadding: const EdgeInsets.all(16),
-      contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+      contentPadding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
       // always put the label at the top
       floatingLabelBehavior: FloatingLabelBehavior.auto,
-      fillColor: Colors.blue,
+      // fillColor: Colors.green,
 
       // Border
 
