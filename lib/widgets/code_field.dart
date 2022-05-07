@@ -11,7 +11,14 @@ class CodeField extends HookWidget {
     return Focus(
       child: TextFormField(
         key: codeFieldKey,
-        validator: _validateCode,
+        validator: (String? code) {
+          if (code == null ||
+              code.length != 6 ||
+              !RegExp(r'^\d{6}$').hasMatch(code)) {
+            return 'Code must be exactly 6 digits';
+          }
+          return null;
+        },
         autofillHints: const [AutofillHints.oneTimeCode],
         decoration: const InputDecoration(
           labelText: 'Code',
@@ -28,25 +35,4 @@ class CodeField extends HookWidget {
       },
     );
   }
-}
-
-String? _validateCode(String? code) {
-  const String invalidMessage01 = 'Code must be exactly 6 digits';
-  const String invalidMessage02 = 'Code can\'t be empty';
-
-  if (code == null || code.isEmpty) {
-    // dev.log('validatecode(null)');
-    return invalidMessage02;
-  } else {
-    // dev.log('validatecode($code)');
-  }
-
-  if (code.length < 6) {
-    return invalidMessage01;
-  }
-  if (!RegExp(r'^\d{6}$').hasMatch(code)) {
-    return invalidMessage01;
-  }
-
-  return null;
 }

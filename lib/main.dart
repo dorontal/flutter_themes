@@ -5,6 +5,7 @@ import 'constants/theme_data.dart';
 import 'widgets/code_field.dart';
 import 'widgets/email_field.dart';
 import 'widgets/password_field.dart';
+import 'widgets/title_field.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,6 +43,7 @@ class FormPage extends HookWidget {
             const EmailField(),
             PasswordField(),
             const CodeField(),
+            const TitleField(),
           ]
               .map((child) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
