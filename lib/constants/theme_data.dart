@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// Mostly based on https://www.youtube.com/watch?v=H2xNq5ph8OE
+// Theme uses a lot from https://www.youtube.com/watch?v=H2xNq5ph8OE
 
 final themeData = ThemeData(
     brightness: Brightness.dark,
