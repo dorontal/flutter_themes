@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 // Mostly based on https://www.youtube.com/watch?v=H2xNq5ph8OE
 
-// const primaryColor = Colors.deepOrange;
-
 final themeData = ThemeData(
     brightness: Brightness.dark,
     primarySwatch: Colors.blue,
