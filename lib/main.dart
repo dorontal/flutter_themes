@@ -1,9 +1,10 @@
 import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import './widgets/email_field.dart';
-import './widgets/password_field.dart';
-import './constants/theme_data.dart';
+import 'constants/theme_data.dart';
+import 'widgets/code_field.dart';
+import 'widgets/email_field.dart';
+import 'widgets/password_field.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,6 +41,7 @@ class FormPage extends HookWidget {
           children: <Widget>[
             const EmailField(),
             PasswordField(),
+            const CodeField(),
           ]
               .map((child) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
