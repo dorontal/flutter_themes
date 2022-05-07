@@ -14,6 +14,8 @@ class TitleField extends HookWidget {
         validator: (String? title) {
           if (title == null || title.length < 2) {
             return 'Title must have at least 2 characters';
+          } else if (title.length >= 100) {
+            return 'Title must have less than 100 characters';
           }
           return null;
         },
