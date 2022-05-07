@@ -18,7 +18,7 @@ class CodeField extends HookWidget {
           // An empty helperText prevents field from changing height
           // when an error is shown:
           helperText: '',
-          prefixIcon: Icon(Icons.code),
+          prefixIcon: Icon(Icons.security),
         ),
       ),
       onFocusChange: (hasFocus) {
