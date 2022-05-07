@@ -19,17 +19,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: themeData,
-      home: const FormPage(),
+      home: FormPage(),
     );
   }
 }
 
 class FormPage extends HookWidget {
-  const FormPage({Key? key}) : super(key: key);
+  FormPage({Key? key}) : super(key: key);
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = useMemoized(() => GlobalKey<FormState>());
+    // final _formKey = useMemoized(() => GlobalKey<FormState>());
 
     return Scaffold(
       appBar: AppBar(
@@ -40,10 +42,10 @@ class FormPage extends HookWidget {
         child: ListView(
           padding: const EdgeInsets.all(32),
           children: <Widget>[
-            const EmailField(),
+            EmailField(),
             PasswordField(),
-            const CodeField(),
-            const TitleField(),
+            CodeField(),
+            TitleField(),
           ]
               .map((child) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),

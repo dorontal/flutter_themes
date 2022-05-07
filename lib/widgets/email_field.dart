@@ -1,34 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import '../constants/excluded_email_domains.dart';
+// import '../constants/excluded_email_domains.dart';
+import '../constants/valid_email_domains.dart';
 
 class EmailField extends HookWidget {
-  const EmailField({Key? key}) : super(key: key);
+  EmailField({Key? key}) : super(key: key);
+
+  final emailFieldKey = GlobalKey<FormFieldState>();
 
   @override
-  Widget build(BuildContext context) {
-    final emailFieldKey = GlobalKey<FormFieldState>();
-
-    return Focus(
-      child: TextFormField(
-        key: emailFieldKey,
-        validator: _validateEmail,
-        autofillHints: const [AutofillHints.email],
-        decoration: const InputDecoration(
-          labelText: 'Email',
-          // An empty helperText prevents field from changing height
-          // when an error is shown:
-          helperText: '',
-          prefixIcon: Icon(Icons.email),
+  Widget build(BuildContext context) => Focus(
+        child: TextFormField(
+          key: emailFieldKey,
+          validator: _validateEmail,
+          autofillHints: const [AutofillHints.email],
+          decoration: const InputDecoration(
+            labelText: 'Email',
+            // An empty helperText prevents field from changing height
+            // when an error is shown:
+            helperText: '',
+            prefixIcon: Icon(Icons.email),
+          ),
         ),
-      ),
-      onFocusChange: (hasFocus) {
-        if (!hasFocus) {
-          emailFieldKey.currentState!.validate();
-        }
-      },
-    );
-  }
+        onFocusChange: (hasFocus) {
+          if (!hasFocus) {
+            emailFieldKey.currentState!.validate();
+          }
+        },
+      );
 }
 
 /// If genericResponse is supplied as a non empty string, it becomes the
@@ -80,9 +79,13 @@ String? _validateEmail(String? email, [String? genericResponse]) {
       return genericResponse ?? 'Not an email address - first domain char';
     }
 
-    if (excludedEmailDomains.contains(domain)) {
+    if (!validEmailDomains.contains(domain)) {
       return genericResponse ?? 'Not an email address - invalid domain';
     }
+
+    // if (excludedEmailDomains.contains(domain)) {
+    //   return genericResponse ?? 'Not an email address - invalid domain';
+    // }
   }
 
   return null;
