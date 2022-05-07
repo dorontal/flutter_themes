@@ -30,37 +30,33 @@ class FormPage extends HookWidget {
   final _formKey = GlobalKey<FormState>();
 
   @override
-  Widget build(BuildContext context) {
-    // final _formKey = useMemoized(() => GlobalKey<FormState>());
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Theme playground'),
-      ),
-      body: Form(
-        key: _formKey,
-        child: ListView(
-          padding: const EdgeInsets.all(32),
-          children: <Widget>[
-            EmailField(),
-            PasswordField(),
-            CodeField(),
-            TitleField(),
-          ]
-              .map((child) => Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: child,
-                  ))
-              .toList(),
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Theme playground'),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          dev.log('Valid form?: ${_formKey.currentState!.validate()}');
-        },
-        tooltip: 'Check validity',
-        child: const Icon(Icons.check),
-      ),
-    );
-  }
+        body: Form(
+          key: _formKey,
+          child: ListView(
+            padding: const EdgeInsets.all(32),
+            children: <Widget>[
+              EmailField(),
+              PasswordField(),
+              CodeField(),
+              TitleField(),
+            ]
+                .map((child) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: child,
+                    ))
+                .toList(),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            dev.log('Valid form?: ${_formKey.currentState!.validate()}');
+          },
+          tooltip: 'Check validity',
+          child: const Icon(Icons.check),
+        ),
+      );
 }
