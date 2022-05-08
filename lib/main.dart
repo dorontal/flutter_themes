@@ -28,6 +28,7 @@ class FormPage extends HookWidget {
   FormPage({Key? key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
+  final _emailFieldKey = GlobalKey<FormFieldState>();
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -39,7 +40,7 @@ class FormPage extends HookWidget {
           child: ListView(
             padding: const EdgeInsets.all(32),
             children: <Widget>[
-              EmailField(),
+              EmailField(fieldKey: _emailFieldKey),
               PasswordField(),
               CodeField(),
               TitleField(),
@@ -53,7 +54,9 @@ class FormPage extends HookWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            dev.log('Valid form?: ${_formKey.currentState!.validate()}');
+            final _valid = _formKey.currentState!.validate();
+            dev.log('Valid form?: $_valid');
+            dev.log('email: ${_emailFieldKey.currentState!.value}');
           },
           tooltip: 'Check validity',
           child: const Icon(Icons.check),
