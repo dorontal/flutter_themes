@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class PasswordField extends HookWidget {
-  PasswordField({Key? key}) : super(key: key);
+  const PasswordField({Key? key, required this.fieldKey}) : super(key: key);
 
-  final _passwordFieldKey = GlobalKey<FormFieldState>();
+  final GlobalKey<FormFieldState> fieldKey;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class PasswordField extends HookWidget {
 
     return Focus(
       child: TextFormField(
-          key: _passwordFieldKey,
+          key: fieldKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: _validatePassword,
           autofillHints: const [AutofillHints.password],
@@ -35,7 +35,7 @@ class PasswordField extends HookWidget {
           )),
       onFocusChange: (hasFocus) {
         if (!hasFocus) {
-          _passwordFieldKey.currentState!.validate();
+          fieldKey.currentState!.validate();
         }
       },
     );

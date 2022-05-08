@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class CodeField extends HookWidget {
-  CodeField({Key? key}) : super(key: key);
+  CodeField({Key? key, required this.fieldKey}) : super(key: key);
 
-  final codeFieldKey = GlobalKey<FormFieldState>();
+  final GlobalKey<FormFieldState> fieldKey;
 
   @override
   Widget build(BuildContext context) => Focus(
         child: TextFormField(
-          key: codeFieldKey,
+          key: fieldKey,
           validator: (String? code) {
             if (code == null ||
                 code.length != 6 ||
@@ -29,7 +29,7 @@ class CodeField extends HookWidget {
         ),
         onFocusChange: (hasFocus) {
           if (!hasFocus) {
-            codeFieldKey.currentState!.validate();
+            fieldKey.currentState!.validate();
           }
         },
       );

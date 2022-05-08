@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class TitleField extends HookWidget {
-  TitleField({Key? key}) : super(key: key);
+  TitleField({Key? key, required this.fieldKey}) : super(key: key);
 
-  final titleFieldKey = GlobalKey<FormFieldState>();
+  final GlobalKey<FormFieldState> fieldKey;
 
   @override
   Widget build(BuildContext context) => Focus(
         child: TextFormField(
-          key: titleFieldKey,
+          key: fieldKey,
           validator: (String? title) {
             if (title == null || title.length < 2) {
               return 'Title must have at least 2 characters';
@@ -27,7 +27,7 @@ class TitleField extends HookWidget {
         ),
         onFocusChange: (hasFocus) {
           if (!hasFocus) {
-            titleFieldKey.currentState!.validate();
+            fieldKey.currentState!.validate();
           }
         },
       );

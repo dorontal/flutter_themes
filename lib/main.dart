@@ -29,6 +29,9 @@ class FormPage extends HookWidget {
 
   final _formKey = GlobalKey<FormState>();
   final _emailFieldKey = GlobalKey<FormFieldState>();
+  final _passwordFieldKey = GlobalKey<FormFieldState>();
+  final _codeFieldKey = GlobalKey<FormFieldState>();
+  final _titleFieldKey = GlobalKey<FormFieldState>();
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -41,9 +44,9 @@ class FormPage extends HookWidget {
             padding: const EdgeInsets.all(32),
             children: <Widget>[
               EmailField(fieldKey: _emailFieldKey),
-              PasswordField(),
-              CodeField(),
-              TitleField(),
+              PasswordField(fieldKey: _passwordFieldKey),
+              CodeField(fieldKey: _codeFieldKey),
+              TitleField(fieldKey: _titleFieldKey),
             ]
                 .map((child) => Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -57,6 +60,9 @@ class FormPage extends HookWidget {
             final _valid = _formKey.currentState!.validate();
             dev.log('Valid form?: $_valid');
             dev.log('email: ${_emailFieldKey.currentState!.value}');
+            dev.log('password: ${_passwordFieldKey.currentState!.value}');
+            dev.log('code: ${_codeFieldKey.currentState!.value}');
+            dev.log('title: ${_titleFieldKey.currentState!.value}');
           },
           tooltip: 'Check validity',
           child: const Icon(Icons.check),
