@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class CodeField extends HookWidget {
-  CodeField({Key? key, required this.fieldKey}) : super(key: key);
+  const CodeField({Key? key, required this.fieldKey}) : super(key: key);
 
   final GlobalKey<FormFieldState> fieldKey;
 
