@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: themeData,
-      home: FormPage(),
+      home: const FormPage(),
     );
   }
 }
 
 class FormPage extends HookWidget {
-  FormPage({Key? key}) : super(key: key);
+  const FormPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
