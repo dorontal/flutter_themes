@@ -1,6 +1,7 @@
 import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_themes/widgets/titled_border.dart';
 
 import 'constants/theme_data.dart';
 import 'widgets/code_field.dart';
@@ -49,6 +50,8 @@ class FormPage extends HookWidget {
             PasswordField(fieldKey: passwordFieldKey),
             CodeField(fieldKey: codeFieldKey),
             TitleField(fieldKey: titleFieldKey),
+            const TitledBorder(
+                title: 'titledBorder', child: Text('inside text?')),
           ]
               .map((child) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
