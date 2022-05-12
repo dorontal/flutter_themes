@@ -16,7 +16,7 @@ final themeData = ThemeData(
       // Border
 
       // enabled, not focused, no error
-      enabledBorder: _buildOutlineInputBorder(Colors.grey[600]!),
+      enabledBorder: _buildOutlineInputBorder(Colors.grey[400]!),
       // enabled, not focused, error
       errorBorder: _buildOutlineInputBorder(Colors.red),
       // enabled, focused, error
@@ -24,7 +24,7 @@ final themeData = ThemeData(
       // enabbled, focused, no error
       focusedBorder: _buildOutlineInputBorder(Colors.white),
       // disabled
-      disabledBorder: _buildOutlineInputBorder(Colors.grey[400]!),
+      disabledBorder: _buildOutlineInputBorder(Colors.grey[600]!),
 
       // Text
 
