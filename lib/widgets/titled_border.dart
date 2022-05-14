@@ -16,6 +16,7 @@ class TitledBorder extends StatelessWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: [
+        /*
         Positioned(
             top: 7,
             left: -12,
@@ -42,6 +43,24 @@ class TitledBorder extends StatelessWidget {
                   )),
               Container(width: 7, height: 17, color: backgroundColor),
             ])
+        */
+        Container(
+          height: 200,
+//          constraints: const BoxConstraints.expand(),
+          // width: 200,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Theme.of(context)
+                  .inputDecorationTheme
+                  .enabledBorder!
+                  .borderSide
+                  .color,
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(4),
+          ),
+          // child: const Text('hi there'),
+        ),
       ],
     );
   }
