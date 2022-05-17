@@ -16,54 +16,35 @@ class TitledBorder extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
     return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        /*
-        Positioned(
-            top: 7,
-            left: -12,
-            child: Container(
-              height: 200,
-              width: 200,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.white,
-                  width: 1,
-                ),
-                borderRadius: BorderRadius.circular(4),
-              ),
-            )),
-        Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(width: 7, height: 17, color: backgroundColor),
-              Text(title,
-                  style: TextStyle(
-                    color: Colors.white,
-                    backgroundColor: backgroundColor,
-                  )),
-              Container(width: 7, height: 17, color: backgroundColor),
-            ])
-        */
+      children: <Widget>[
         Container(
-          height: 200,
           width: double.infinity,
-//          constraints: const BoxConstraints.expand(),
-          // width: 200,
+          height: 200,
+          margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
+          padding: const EdgeInsets.only(bottom: 10),
           decoration: BoxDecoration(
             border: Border.all(
-              color: Theme.of(context)
-                  .inputDecorationTheme
-                  .enabledBorder!
-                  .borderSide
-                  .color,
-              width: 1,
-            ),
-            borderRadius: BorderRadius.circular(4),
+                // color: const Color.fromARGB(255, 51, 204, 255), width: 1),
+                color: Theme.of(context)
+                    .inputDecorationTheme
+                    .enabledBorder!
+                    .borderSide
+                    .color,
+                width: 1),
+            borderRadius: BorderRadius.circular(5),
+            shape: BoxShape.rectangle,
           ),
-          child: const Text('hi there'),
         ),
+        Positioned(
+            left: 50,
+            top: 12,
+            child: Container(
+              padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+              color: Theme.of(context).scaffoldBackgroundColor,
+              child: Text(
+                title,
+              ),
+            )),
       ],
     );
   }
