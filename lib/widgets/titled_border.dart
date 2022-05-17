@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// see: https://stackoverflow.com/questions/57978545
+
 class TitledBorder extends StatelessWidget {
   final String title;
   final Widget child;
@@ -46,6 +48,7 @@ class TitledBorder extends StatelessWidget {
         */
         Container(
           height: 200,
+          width: double.infinity,
 //          constraints: const BoxConstraints.expand(),
           // width: 200,
           decoration: BoxDecoration(
