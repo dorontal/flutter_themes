@@ -59,7 +59,7 @@ class TitledBorder extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(4),
           ),
-          // child: const Text('hi there'),
+          child: const Text('hi there'),
         ),
       ],
     );
