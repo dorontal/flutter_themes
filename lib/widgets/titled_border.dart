@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// see: https://stackoverflow.com/questions/57978545
+// See: https://stackoverflow.com/questions/57978545
 
 class TitledBorder extends StatelessWidget {
   final String title;
@@ -14,7 +14,6 @@ class TitledBorder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
     return Stack(
       children: <Widget>[
         Container(
@@ -24,19 +23,18 @@ class TitledBorder extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 10),
           decoration: BoxDecoration(
             border: Border.all(
-                // color: const Color.fromARGB(255, 51, 204, 255), width: 1),
                 color: Theme.of(context)
                     .inputDecorationTheme
                     .enabledBorder!
                     .borderSide
                     .color,
                 width: 1),
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(4),
             shape: BoxShape.rectangle,
           ),
         ),
         Positioned(
-            left: 50,
+            left: 26,
             top: 12,
             child: Container(
               padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),

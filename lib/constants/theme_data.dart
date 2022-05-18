@@ -6,7 +6,6 @@ final themeData = ThemeData(
     brightness: Brightness.dark,
     // primarySwatch: Colors.yellow,
     // primaryColor: const Color(0xff64ffda),
-    textTheme: const TextTheme(bodyText1: TextStyle(color: Colors.white)),
     inputDecorationTheme: InputDecorationTheme(
       // contentPadding: const EdgeInsets.all(16),
       contentPadding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
