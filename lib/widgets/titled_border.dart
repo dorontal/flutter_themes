@@ -34,13 +34,16 @@ class TitledBorder extends StatelessWidget {
           ),
         ),
         Positioned(
-            left: 26,
-            top: 12,
+            // more 'left' pushes title text to the right
+            left: 16,
+            // more 'top' pushes title text downward
+            top: 13,
             child: Container(
-              padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+              padding: const EdgeInsets.only(left: 4, right: 4),
               color: Theme.of(context).scaffoldBackgroundColor,
               child: Text(
                 title,
+                style: const TextStyle(fontSize: 12),
               ),
             )),
       ],
