@@ -19,8 +19,9 @@ class TitledBorder extends StatelessWidget {
         Container(
           width: double.infinity,
           height: 200,
-          margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-          padding: const EdgeInsets.only(bottom: 10),
+          // margin: const EdgeInsets.fromLTRB(0, 7, 0, 0),
+          margin: const EdgeInsets.only(top: 7),
+          // padding: const EdgeInsets.only(bottom: 0),
           decoration: BoxDecoration(
             border: Border.all(
                 color: Theme.of(context)
@@ -37,7 +38,7 @@ class TitledBorder extends StatelessWidget {
             // more 'left' pushes title text to the right
             left: 16,
             // more 'top' pushes title text downward
-            top: 13,
+            // top: 0,
             child: Container(
               padding: const EdgeInsets.only(left: 4, right: 4),
               color: Theme.of(context).scaffoldBackgroundColor,
