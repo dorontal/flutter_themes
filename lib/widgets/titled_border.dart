@@ -15,14 +15,12 @@ class TitledBorder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      clipBehavior: Clip.none,
       children: <Widget>[
         Center(
           child: Container(
             width: double.infinity,
-//            height: 100,
-            // margin: const EdgeInsets.fromLTRB(0, 7, 0, 0),
-            margin: const EdgeInsets.only(top: 7),
-            // padding: const EdgeInsets.only(bottom: 0),
+            // margin: const EdgeInsets.only(top: 7),
             decoration: BoxDecoration(
               border: Border.all(
                   color: Theme.of(context)
@@ -44,6 +42,7 @@ class TitledBorder extends StatelessWidget {
           left: 16,
           // more 'top' pushes title text downward
           // top: 0,
+          top: -7,
           child: Container(
             padding: const EdgeInsets.only(left: 4, right: 4),
             color: Theme.of(context).scaffoldBackgroundColor,
