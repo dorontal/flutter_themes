@@ -16,37 +16,42 @@ class TitledBorder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Container(
-          width: double.infinity,
-          height: 200,
-          // margin: const EdgeInsets.fromLTRB(0, 7, 0, 0),
-          margin: const EdgeInsets.only(top: 7),
-          // padding: const EdgeInsets.only(bottom: 0),
-          decoration: BoxDecoration(
-            border: Border.all(
-                color: Theme.of(context)
-                    .inputDecorationTheme
-                    .enabledBorder!
-                    .borderSide
-                    .color,
-                width: 1),
-            borderRadius: BorderRadius.circular(4),
-            shape: BoxShape.rectangle,
+        Center(
+          child: Container(
+            width: double.infinity,
+//            height: 100,
+            // margin: const EdgeInsets.fromLTRB(0, 7, 0, 0),
+            margin: const EdgeInsets.only(top: 7),
+            // padding: const EdgeInsets.only(bottom: 0),
+            decoration: BoxDecoration(
+              border: Border.all(
+                  color: Theme.of(context)
+                      .inputDecorationTheme
+                      .enabledBorder!
+                      .borderSide
+                      .color,
+                  width: 1),
+              borderRadius: BorderRadius.circular(4),
+              shape: BoxShape.rectangle,
+            ),
+            child: Padding(
+                padding: const EdgeInsets.fromLTRB(8, 16, 8, 16), child: child),
           ),
         ),
         Positioned(
-            // more 'left' pushes title text to the right
-            left: 16,
-            // more 'top' pushes title text downward
-            // top: 0,
-            child: Container(
-              padding: const EdgeInsets.only(left: 4, right: 4),
-              color: Theme.of(context).scaffoldBackgroundColor,
-              child: Text(
-                title,
-                style: const TextStyle(fontSize: 12),
-              ),
-            )),
+          // more 'left' pushes title text to the right
+          left: 16,
+          // more 'top' pushes title text downward
+          // top: 0,
+          child: Container(
+            padding: const EdgeInsets.only(left: 4, right: 4),
+            color: Theme.of(context).scaffoldBackgroundColor,
+            child: Text(
+              title,
+              style: const TextStyle(fontSize: 12),
+            ),
+          ),
+        ),
       ],
     );
   }
