@@ -32,7 +32,7 @@ class TitledBorder extends StatelessWidget {
               shape: BoxShape.rectangle,
             ),
             child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+                padding: const EdgeInsets.fromLTRB(20, 14, 20, 14),
                 child: child),
           ),
         ),
