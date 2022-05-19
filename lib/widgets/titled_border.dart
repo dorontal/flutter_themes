@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-// See: https://stackoverflow.com/questions/57978545
+// Used: https://stackoverflow.com/questions/57978545
+//   and https://stackoverflow.com/questions/51182803
+//   and https://stackoverflow.com/questions/68965718 (for clipBehavior)
 
 class TitledBorder extends StatelessWidget {
   final String title;
@@ -34,7 +36,8 @@ class TitledBorder extends StatelessWidget {
             child: Padding(
                 // TODO: padding numbers based on TextFormField so use
                 // a theme for that and put those class constants here
-                // instead of hardwired numbers
+                // instead of hardwired numbers - this may not be true
+                // for padding but it may be true for font size.
                 padding: const EdgeInsets.fromLTRB(20, 14, 20, 14),
                 child: child),
           ),
