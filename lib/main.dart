@@ -51,7 +51,12 @@ class FormPage extends HookWidget {
             CodeField(fieldKey: codeFieldKey),
             TitleField(fieldKey: titleFieldKey),
             const TitledBorder(
-                title: 'Titled Border', child: Text('inside text?')),
+              title: 'Titled Border',
+              child: Text(
+                'Title not, instead it is the text inside',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
           ]
               .map((child) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
