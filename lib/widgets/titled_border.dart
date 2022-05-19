@@ -20,7 +20,6 @@ class TitledBorder extends StatelessWidget {
         Center(
           child: Container(
             width: double.infinity,
-            // margin: const EdgeInsets.only(top: 7),
             decoration: BoxDecoration(
               border: Border.all(
                   color: Theme.of(context)
@@ -38,11 +37,8 @@ class TitledBorder extends StatelessWidget {
           ),
         ),
         Positioned(
-          // more 'left' pushes title text to the right
-          left: 16,
-          // more 'top' pushes title text downward
-          // top: 0,
-          top: -7,
+          left: 16, // # of pixels by which title text gets pushed to the right
+          top: -7, // # of pixels by which title text gets pushed down
           child: Container(
             padding: const EdgeInsets.only(left: 4, right: 4),
             color: Theme.of(context).scaffoldBackgroundColor,
