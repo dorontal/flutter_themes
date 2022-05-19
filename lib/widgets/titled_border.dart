@@ -32,6 +32,9 @@ class TitledBorder extends StatelessWidget {
               shape: BoxShape.rectangle,
             ),
             child: Padding(
+                // TODO: padding numbers based on TextFormField so use
+                // a theme for that and put those class constants here
+                // instead of hardwired numbers
                 padding: const EdgeInsets.fromLTRB(20, 14, 20, 14),
                 child: child),
           ),

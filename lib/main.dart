@@ -53,7 +53,8 @@ class FormPage extends HookWidget {
             const TitledBorder(
               title: 'Titled Border',
               child: Text(
-                'Title not, instead it is the text inside',
+                'Title not, instead it is the text inside, '
+                'but now we also need to check if and how it wraps!',
                 style: TextStyle(fontSize: 16),
               ),
             ),
