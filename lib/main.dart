@@ -68,8 +68,8 @@ class FormPage extends HookWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          final _valid = formKey.currentState!.validate();
-          dev.log('Valid form?: $_valid');
+          final formIsValid = formKey.currentState!.validate();
+          dev.log('Valid form?: $formIsValid');
           dev.log('email: ${emailFieldKey.currentState!.value}');
           dev.log('password: ${passwordFieldKey.currentState!.value}');
           dev.log('code: ${codeFieldKey.currentState!.value}');

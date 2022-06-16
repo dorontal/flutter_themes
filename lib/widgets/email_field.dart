@@ -36,7 +36,7 @@ String? _validateEmail(String? email, [String? genericResponse]) {
   // stackoverflow.com/questions/16800540:
   final RegExp emailRegExp = RegExp(
       r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
-  final RegExp _nonASCIIRegExp = RegExp('[^\x00-\x7F]');
+  final RegExp nonASCIIRegExp = RegExp('[^\x00-\x7F]');
   final RegExp firstDomainCharRegExp = RegExp('[^a-zA-Z0-9]');
   const int minLength = 8;
   const int maxLength = 255;
@@ -57,7 +57,7 @@ String? _validateEmail(String? email, [String? genericResponse]) {
       return genericResponse ?? 'Email must have at most $maxLength characters';
     }
 
-    if (_nonASCIIRegExp.hasMatch(email)) {
+    if (nonASCIIRegExp.hasMatch(email)) {
       return genericResponse ?? 'Non ASCII characters found';
     }
 

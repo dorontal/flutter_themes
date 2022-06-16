@@ -8,7 +8,7 @@ class PasswordField extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _obscureTextState = useState(true);
+    final obscureTextState = useState(true);
 
     return Focus(
       child: TextFormField(
@@ -16,7 +16,7 @@ class PasswordField extends HookWidget {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: _validatePassword,
           autofillHints: const [AutofillHints.password],
-          obscureText: _obscureTextState.value,
+          obscureText: obscureTextState.value,
           decoration: InputDecoration(
             labelText: 'Password',
             // An empty helperText prevents field from changing height
@@ -24,10 +24,9 @@ class PasswordField extends HookWidget {
             helperText: '',
             prefixIcon: const Icon(Icons.lock),
             suffixIcon: IconButton(
-              onPressed: () =>
-                  _obscureTextState.value = !_obscureTextState.value,
+              onPressed: () => obscureTextState.value = !obscureTextState.value,
               icon: Icon(
-                _obscureTextState.value
+                obscureTextState.value
                     ? Icons.visibility
                     : Icons.visibility_off,
               ),
