@@ -4,10 +4,10 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_themes/widgets/titled_border.dart';
 
 import 'constants/theme_data.dart';
+import 'widgets/about_field.dart';
 import 'widgets/code_field.dart';
 import 'widgets/email_field.dart';
 import 'widgets/password_field.dart';
-import 'widgets/title_field.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,7 +49,7 @@ class FormPage extends HookWidget {
             EmailField(fieldKey: emailFieldKey),
             PasswordField(fieldKey: passwordFieldKey),
             CodeField(fieldKey: codeFieldKey),
-            TitleField(fieldKey: titleFieldKey),
+            AboutField(fieldKey: titleFieldKey),
             const TitledBorder(
               title: 'Titled Border',
               child: Text(

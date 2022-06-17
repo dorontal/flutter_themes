@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TitleField extends StatelessWidget {
-  const TitleField({Key? key, required this.fieldKey}) : super(key: key);
+class AboutField extends StatelessWidget {
+  const AboutField({Key? key, required this.fieldKey}) : super(key: key);
 
   final GlobalKey<FormFieldState> fieldKey;
 
@@ -9,16 +9,16 @@ class TitleField extends StatelessWidget {
   Widget build(BuildContext context) => Focus(
         child: TextFormField(
           key: fieldKey,
-          validator: (String? title) {
-            if (title == null || title.length < 2) {
-              return 'Title must have at least 2 characters';
-            } else if (title.length >= 100) {
-              return 'Title must have less than 100 characters';
+          validator: (String? about) {
+            if (about == null || about.length < 2) {
+              return 'About must have at least 2 characters';
+            } else if (about.length >= 100) {
+              return 'About must have less than 100 characters';
             }
             return null;
           },
           decoration: const InputDecoration(
-            labelText: 'Title',
+            labelText: 'About',
             // An empty helperText prevents field from changing height
             // when an error is shown:
             helperText: '',
