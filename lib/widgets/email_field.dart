@@ -82,10 +82,6 @@ String? _validateEmail(String? email, [String? genericResponse]) {
     if (!validEmailDomains.contains(domain)) {
       return genericResponse ?? 'Not an email address - invalid domain';
     }
-
-    // if (excludedEmailDomains.contains(domain)) {
-    //   return genericResponse ?? 'Not an email address - invalid domain';
-    // }
   }
 
   return null;
