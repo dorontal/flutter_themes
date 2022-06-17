@@ -33,7 +33,7 @@ class EmailField extends HookWidget {
 /// If genericResponse is supplied as a non empty string, it becomes the
 /// only error report ever returned and replaces all other errors.
 String? _validateEmail(String? email, [String? genericResponse]) {
-  // stackoverflow.com/questions/16800540:
+  // RegExp from stackoverflow.com/questions/16800540:
   final RegExp emailRegExp = RegExp(
       r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
   final RegExp nonASCIIRegExp = RegExp('[^\x00-\x7F]');
