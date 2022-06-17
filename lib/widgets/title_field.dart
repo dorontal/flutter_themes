@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
-class TitleField extends HookWidget {
+class TitleField extends StatelessWidget {
   const TitleField({Key? key, required this.fieldKey}) : super(key: key);
 
   final GlobalKey<FormFieldState> fieldKey;

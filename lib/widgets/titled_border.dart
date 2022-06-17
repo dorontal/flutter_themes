@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 //   and https://stackoverflow.com/questions/68965718 (for clipBehavior)
 
 class TitledBorder extends StatelessWidget {
-  final String title;
-  final Widget child;
-
   const TitledBorder({
     Key? key,
     required this.title,
     required this.child,
   }) : super(key: key);
+
+  final String title;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
