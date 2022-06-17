@@ -9,6 +9,7 @@ class AboutField extends StatelessWidget {
   Widget build(BuildContext context) => Focus(
         child: TextFormField(
           key: fieldKey,
+          maxLines: 5,
           validator: (String? about) {
             if (about == null || about.length < 2) {
               return 'About must have at least 2 characters';
