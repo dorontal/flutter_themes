@@ -1,7 +1,6 @@
 import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_themes/widgets/titled_border.dart';
 
 import 'constants/theme_data.dart';
 import 'widgets/about_field.dart';
@@ -50,14 +49,6 @@ class FormPage extends HookWidget {
             PasswordField(fieldKey: passwordFieldKey),
             CodeField(fieldKey: codeFieldKey),
             AboutField(fieldKey: titleFieldKey),
-            const TitledBorder(
-              title: 'Titled Border',
-              child: Text(
-                'Title not, instead it is the text inside, '
-                'but now we also need to check if and how it wraps!',
-                style: TextStyle(fontSize: 16),
-              ),
-            ),
           ]
               .map((child) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
