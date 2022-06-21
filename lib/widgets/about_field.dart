@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class AboutField extends HookWidget {
-  const AboutField({Key? key, required this.fieldKey}) : super(key: key);
+  const AboutField({Key? key, required this.globalKey}) : super(key: key);
 
-  final GlobalKey<FormFieldState> fieldKey;
+  final GlobalKey<FormFieldState> globalKey;
 
   @override
   Widget build(BuildContext context) => Focus(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: TextFormField(
-            key: fieldKey,
+            key: globalKey,
             maxLines: 5,
             validator: (String? about) {
               if (about == null || about.length > 1024) {
@@ -29,7 +29,7 @@ class AboutField extends HookWidget {
         ),
         onFocusChange: (hasFocus) {
           if (!hasFocus) {
-            fieldKey.currentState!.validate();
+            globalKey.currentState!.validate();
           }
         },
       );

@@ -31,10 +31,10 @@ class FormPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final formKey = useMemoized(() => GlobalKey<FormState>());
-    final emailFieldKey = useMemoized(() => GlobalKey<FormFieldState>());
-    final passwordFieldKey = useMemoized(() => GlobalKey<FormFieldState>());
-    final codeFieldKey = useMemoized(() => GlobalKey<FormFieldState>());
-    final aboutFieldKey = useMemoized(() => GlobalKey<FormFieldState>());
+    final emailGlobalKey = useMemoized(() => GlobalKey<FormFieldState>());
+    final passwordGlobalKey = useMemoized(() => GlobalKey<FormFieldState>());
+    final codeGlobalKey = useMemoized(() => GlobalKey<FormFieldState>());
+    final aboutGlobalKey = useMemoized(() => GlobalKey<FormFieldState>());
 
     return Scaffold(
       appBar: AppBar(
@@ -45,10 +45,10 @@ class FormPage extends HookWidget {
         child: ListView(
           padding: const EdgeInsets.all(32),
           children: <Widget>[
-            EmailField(fieldKey: emailFieldKey),
-            PasswordField(fieldKey: passwordFieldKey),
-            CodeField(fieldKey: codeFieldKey),
-            AboutField(fieldKey: aboutFieldKey),
+            EmailField(globalKey: emailGlobalKey),
+            PasswordField(globalKey: passwordGlobalKey),
+            CodeField(globalKey: codeGlobalKey),
+            AboutField(globalKey: aboutGlobalKey),
           ]
               .map((child) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
@@ -61,10 +61,10 @@ class FormPage extends HookWidget {
         onPressed: () {
           final formIsValid = formKey.currentState!.validate();
           dev.log('Valid form?: $formIsValid');
-          dev.log('email: ${emailFieldKey.currentState!.value}');
-          dev.log('password: ${passwordFieldKey.currentState!.value}');
-          dev.log('code: ${codeFieldKey.currentState!.value}');
-          dev.log('title: ${aboutFieldKey.currentState!.value}');
+          dev.log('email: ${emailGlobalKey.currentState!.value}');
+          dev.log('password: ${passwordGlobalKey.currentState!.value}');
+          dev.log('code: ${codeGlobalKey.currentState!.value}');
+          dev.log('title: ${aboutGlobalKey.currentState!.value}');
         },
         tooltip: 'Check validity',
         child: const Icon(Icons.check),

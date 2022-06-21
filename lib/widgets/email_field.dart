@@ -4,14 +4,14 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import '../constants/valid_email_domains.dart';
 
 class EmailField extends HookWidget {
-  const EmailField({Key? key, required this.fieldKey}) : super(key: key);
+  const EmailField({Key? key, required this.globalKey}) : super(key: key);
 
-  final GlobalKey<FormFieldState> fieldKey;
+  final GlobalKey<FormFieldState> globalKey;
 
   @override
   Widget build(BuildContext context) => Focus(
         child: TextFormField(
-          key: fieldKey,
+          key: globalKey,
           validator: _validateEmail,
           autofillHints: const [AutofillHints.email],
           decoration: const InputDecoration(
@@ -24,7 +24,7 @@ class EmailField extends HookWidget {
         ),
         onFocusChange: (hasFocus) {
           if (!hasFocus) {
-            fieldKey.currentState!.validate();
+            globalKey.currentState!.validate();
           }
         },
       );
