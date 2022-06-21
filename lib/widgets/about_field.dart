@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
-class AboutField extends StatelessWidget {
+class AboutField extends HookWidget {
   const AboutField({Key? key, required this.fieldKey}) : super(key: key);
 
   final GlobalKey<FormFieldState> fieldKey;

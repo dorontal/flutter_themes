@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../constants/valid_email_domains.dart';
 
-class EmailField extends StatelessWidget {
+class EmailField extends HookWidget {
   const EmailField({Key? key, required this.fieldKey}) : super(key: key);
 
   final GlobalKey<FormFieldState> fieldKey;
