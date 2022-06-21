@@ -34,7 +34,7 @@ class FormPage extends HookWidget {
     final emailFieldKey = useMemoized(() => GlobalKey<FormFieldState>());
     final passwordFieldKey = useMemoized(() => GlobalKey<FormFieldState>());
     final codeFieldKey = useMemoized(() => GlobalKey<FormFieldState>());
-    final titleFieldKey = useMemoized(() => GlobalKey<FormFieldState>());
+    final aboutFieldKey = useMemoized(() => GlobalKey<FormFieldState>());
 
     return Scaffold(
       appBar: AppBar(
@@ -48,7 +48,7 @@ class FormPage extends HookWidget {
             EmailField(fieldKey: emailFieldKey),
             PasswordField(fieldKey: passwordFieldKey),
             CodeField(fieldKey: codeFieldKey),
-            AboutField(fieldKey: titleFieldKey),
+            AboutField(fieldKey: aboutFieldKey),
           ]
               .map((child) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
@@ -64,7 +64,7 @@ class FormPage extends HookWidget {
           dev.log('email: ${emailFieldKey.currentState!.value}');
           dev.log('password: ${passwordFieldKey.currentState!.value}');
           dev.log('code: ${codeFieldKey.currentState!.value}');
-          dev.log('title: ${titleFieldKey.currentState!.value}');
+          dev.log('title: ${aboutFieldKey.currentState!.value}');
         },
         tooltip: 'Check validity',
         child: const Icon(Icons.check),
